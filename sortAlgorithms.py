@@ -1,7 +1,19 @@
-test = [5, 6, 9, 2, 7, 1, 4, 2, 8, 3]
-for a in test:
+import sys
+numbers = [5, 6, 9, 2, 7, 1, 4, 2, 8, 3]
+print("Normal array")
+for a in numbers:
     print(a, end=",")
-print("")
+print("\n")
+
+
+def selectionSort(array):
+    for i in range(len(array)): 
+        min_idx = i 
+        for j in range(i+1, len(array)): 
+            if array[min_idx] > array[j]: 
+                min_idx = j        
+        array[i], array[min_idx] = array[min_idx], array[i] 
+    return array
 
 
 def insertionSort(array):
@@ -23,8 +35,9 @@ def insertionSort(array):
     return array
 
 
-
-
-test = insertionSort(test)
-for a in test:
-    print(a, end=",")
+#Test
+numbers = selectionSort(numbers)
+#Print
+print ("Sorted array") 
+for i in range(len(numbers)): 
+    print(numbers[i], end=",")
